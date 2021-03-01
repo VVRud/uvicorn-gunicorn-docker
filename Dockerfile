@@ -1,6 +1,6 @@
-FROM python:3.7-alpine
+FROM python:3.7
 
-RUN apk add --no-cache g++ snappy-dev build-base
+RUN sudo apt-get install libsnappy-dev
 
 RUN pip install -U setuptools pip && pip install --no-cache-dir "uvicorn[standard]" gunicorn fastapi
 
