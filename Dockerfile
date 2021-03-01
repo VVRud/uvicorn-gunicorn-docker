@@ -1,5 +1,7 @@
 FROM python:3.7
 
+RUN apt-get update && apt-get upgrade -y && apt-get install libsnappy-dev -y
+
 RUN pip install -U setuptools pip && pip install --no-cache-dir "uvicorn[standard]" gunicorn fastapi
 
 COPY ./start.sh /start.sh
