@@ -1,8 +1,8 @@
-FROM python:3.8
+FROM python:3.7
 
 LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
-RUN pip install --no-cache-dir "uvicorn[standard]" gunicorn
+RUN pip install --no-cache-dir "uvicorn[standard]" gunicorn fastapi
 
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
