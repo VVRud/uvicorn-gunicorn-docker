@@ -1,8 +1,8 @@
-FROM python:3.7
+FROM python:3.7-alpine
 
-LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
+RUN apk add --no-cache g++ snappy-dev build-base
 
-RUN pip install --no-cache-dir "uvicorn[standard]" gunicorn fastapi
+RUN pip install -U setuptools pip && pip install --no-cache-dir "uvicorn[standard]" gunicorn fastapi
 
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
